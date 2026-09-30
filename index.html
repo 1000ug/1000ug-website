@@ -70,26 +70,55 @@
       font-size: 30px;
       margin-bottom: 30px;
     }
-
-    .books {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 25px;
-    }
-
-    .book {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
-
-    .book-image {
-      width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 8px;
+    
+      .books {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+  width: 100%;
 }
+
+.book {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  min-width: 0;
+}
+
+.book-image {
+  width: 100%;
+  height: 300px;
+  background: #f2f2f2;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+
+.book-image img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 800px) {
+  .books {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 500px) {
+  .books {
+    grid-template-columns: 1fr;
+  }
+}
+
       background: #ececec;
       height: 260px;
       border-radius: 8px;
@@ -177,6 +206,13 @@
   <img src="1000-english-words.jpg" alt="Миний анхны 1000 англи үг">
 </div>
       <h3>Миний анхны 1000 англи үг</h3>
+      <div class="price">27,900₮</div>
+      <button class="add-cart">Сагсанд хийх</button>
+    </div>
+    
+    <div class="book">
+      <div class="book-image">Номын зураг</div>
+      <h3>Миний анхны 1000 англи үг 2</h3>
       <div class="price">29,900₮</div>
       <button class="add-cart">Сагсанд хийх</button>
     </div>
@@ -184,7 +220,7 @@
     <div class="book">
       <div class="book-image">Номын зураг</div>
       <h3>Миний анхны үлгэрийн ном</h3>
-      <div class="price">29,900₮</div>
+      <div class="price">27,900₮</div>
       <button class="add-cart">Сагсанд хийх</button>
     </div>
 
@@ -194,7 +230,6 @@
       <div class="price">29,900₮</div>
       <button class="add-cart">Сагсанд хийх</button>
     </div>
-
   </div>
 </section>
 
