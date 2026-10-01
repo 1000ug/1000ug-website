@@ -604,5 +604,17 @@ placeOrderButton.addEventListener("click", function() {
   updateCartCount();
   renderCart();
 </script>
+  <script>
+  const checkoutButton = document.getElementById("checkout-button");
+  const checkoutForm = document.getElementById("checkout-form");
+
+  checkoutButton.addEventListener("click", function() {
+    checkoutForm.style.display = "block";
+
+    checkoutForm.scrollIntoView({
+      behavior: "smooth"
+    });
+  });
+</script>
 </body>
 </html>
