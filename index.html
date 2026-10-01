@@ -605,16 +605,25 @@ placeOrderButton.addEventListener("click", function() {
   renderCart();
 </script>
   <script>
-  const checkoutButton = document.getElementById("checkout-button");
-  const checkoutForm = document.getElementById("checkout-form");
+document.addEventListener("DOMContentLoaded", function () {
 
-  checkoutButton.addEventListener("click", function() {
-    checkoutForm.style.display = "block";
+  const checkoutBtn = document.getElementById("checkout-button");
+  const checkoutBox = document.getElementById("checkout-form");
 
-    checkoutForm.scrollIntoView({
-      behavior: "smooth"
+  if (checkoutBtn && checkoutBox) {
+    checkoutBtn.addEventListener("click", function () {
+
+      checkoutBox.style.display = "block";
+
+      checkoutBox.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
     });
-  });
+  }
+
+});
 </script>
 </body>
 </html>
