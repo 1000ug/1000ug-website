@@ -433,7 +433,22 @@
   © 2026 1000ug
 </footer>
 <script>
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart = [];
+
+try {
+  const savedCart = localStorage.getItem("cart");
+
+  if (savedCart) {
+    cart = JSON.parse(savedCart);
+  }
+
+  if (!Array.isArray(cart)) {
+    cart = [];
+  }
+} catch (error) {
+  cart = [];
+  localStorage.removeItem("cart");
+}
 
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
