@@ -607,7 +607,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (placeOrderButton) {
 
-    placeOrderButton.addEventListener("click", function () {
+    placeOrderButton.addEventListener("click", async function () {
 
       const name =
         document.getElementById("customer-name").value.trim();
@@ -659,10 +659,61 @@ document.addEventListener("DOMContentLoaded", function () {
 
       };
 
-      console.log("ORDER:", order);
+      placeOrderButton.disabled = true;
+placeOrderButton.textContent = "Түр хүлээнэ үү...";
 
-      checkoutMessage.textContent =
-        "Захиалгын мэдээлэл амжилттай бэлтгэгдлээ ✓";
+try {
+  const { data, error } = await supabaseClient.rpc(
+    "create_order",
+    {
+      p_customer_name: name,
+      p_phone: phone,
+      p_district: district,
+      p_address: address,
+      p_note: note,
+      p_items: cart
+    }
+  );
+
+  if (error) {
+    console.error(error);
+
+    checkoutMessage.textContent =
+      "Захиалга хадгалахад алдаа гарлаа.";
+
+    placeOrderButton.disabled = false;
+    placeOrderButton.textContent =
+      "Захиалга баталгаажуулах";
+
+    return;
+  }
+
+  checkoutMessage.textContent =
+    "Захиалга амжилттай бүртгэгдлээ. Захиалгын дугаар: " + data;
+
+  cart = [];
+  saveCart();
+  updateCartCount();
+  renderCart();
+
+  document.getElementById("customer-name").value = "";
+  document.getElementById("customer-phone").value = "";
+  document.getElementById("customer-district").value = "";
+  document.getElementById("customer-address").value = "";
+  document.getElementById("customer-note").value = "";
+
+  placeOrderButton.textContent = "Амжилттай ✓";
+
+} catch (err) {
+  console.error(err);
+
+  checkoutMessage.textContent =
+    "Захиалга хадгалахад алдаа гарлаа.";
+
+  placeOrderButton.disabled = false;
+  placeOrderButton.textContent =
+    "Захиалга баталгаажуулах";
+}
     });
   }
 
