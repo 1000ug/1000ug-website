@@ -222,7 +222,7 @@
   text-align: right;
   font-size: 20px;
 }
-    .checkout-button {
+   .checkout-button {
   display: block;
   margin-left: auto;
   margin-top: 20px;
@@ -370,58 +370,55 @@
   <div id="cart-summary">
     <h3>Нийт: <span id="cart-total">0₮</span></h3>
   </div>
+
   <button id="checkout-button" class="checkout-button">
-  Захиалах
-</button>
-
-<div id="checkout-form" class="checkout-form">
-
-  <h2>Захиалгын мэдээлэл</h2>
-
-  <label for="customer-name">Нэр</label>
-  <input
-    type="text"
-    id="customer-name"
-    placeholder="Таны нэр"
-    required
-  >
-
-  <label for="customer-phone">Утасны дугаар</label>
-  <input
-    type="tel"
-    id="customer-phone"
-    placeholder="99112233"
-    required
-  >
-
-  <label for="customer-district">Дүүрэг / Хороо</label>
-  <input
-    type="text"
-    id="customer-district"
-    placeholder="Жишээ: ХУД, 15-р хороо"
-    required
-  >
-
-  <label for="customer-address">Хүргэлтийн хаяг</label>
-  <textarea
-    id="customer-address"
-    placeholder="Байр, орц, тоот болон бусад дэлгэрэнгүй хаяг"
-    required
-  ></textarea>
-
-  <label for="customer-note">Нэмэлт мэдээлэл</label>
-  <textarea
-    id="customer-note"
-    placeholder="Хүргэлттэй холбоотой нэмэлт мэдээлэл байвал бичнэ үү"
-  ></textarea>
-
-  <button id="place-order-button" class="place-order-button">
-    Захиалга баталгаажуулах
+    Захиалах
   </button>
 
-  <p id="checkout-message"></p>
+  <div id="checkout-form" class="checkout-form">
 
-</div>
+    <h2>Захиалгын мэдээлэл</h2>
+
+    <label for="customer-name">Нэр</label>
+    <input
+      type="text"
+      id="customer-name"
+      placeholder="Таны нэр"
+    >
+
+    <label for="customer-phone">Утасны дугаар</label>
+    <input
+      type="tel"
+      id="customer-phone"
+      placeholder="99112233"
+    >
+
+    <label for="customer-district">Дүүрэг / Хороо</label>
+    <input
+      type="text"
+      id="customer-district"
+      placeholder="Жишээ: ХУД, 15-р хороо"
+    >
+
+    <label for="customer-address">Хүргэлтийн хаяг</label>
+    <textarea
+      id="customer-address"
+      placeholder="Байр, орц, тоот болон дэлгэрэнгүй хаяг"
+    ></textarea>
+
+    <label for="customer-note">Нэмэлт мэдээлэл</label>
+    <textarea
+      id="customer-note"
+      placeholder="Нэмэлт мэдээлэл"
+    ></textarea>
+
+    <button id="place-order-button" class="place-order-button">
+      Захиалга баталгаажуулах
+    </button>
+
+    <p id="checkout-message"></p>
+
+  </div>
 </section>
 <section class="section about" id="about">
   <h2>Бидний тухай</h2>
