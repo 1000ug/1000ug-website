@@ -175,6 +175,53 @@
         padding: 65px 20px;
       }
     }
+    #cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cart-item {
+  background: white;
+  padding: 18px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-controls button {
+  border: none;
+  background: #222;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.remove-button {
+  background: #777 !important;
+  width: auto !important;
+  padding: 0 10px;
+}
+
+#cart-summary {
+  margin-top: 25px;
+  text-align: right;
+  font-size: 20px;
+}
   </style>
 </head>
 
@@ -250,7 +297,15 @@
     </div>
   </div>
 </section>
+<section class="section" id="cart">
+  <h2>Сагс</h2>
 
+  <div id="cart-items"></div>
+
+  <div id="cart-summary">
+    <h3>Нийт: <span id="cart-total">0₮</span></h3>
+  </div>
+</section>
 <section class="section about" id="about">
   <h2>Бидний тухай</h2>
 
@@ -266,9 +321,85 @@
 <script>
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+  function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
   function updateCartCount() {
     const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
     document.getElementById("cart-count").textContent = totalItems;
+  }
+
+  function formatPrice(price) {
+    return price.toLocaleString() + "₮";
+  }
+
+  function renderCart() {
+    const cartItems = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+
+    cartItems.innerHTML = "";
+
+    if (cart.length === 0) {
+      cartItems.innerHTML = "<p>Таны сагс хоосон байна.</p>";
+      cartTotal.textContent = "0₮";
+      return;
+    }
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+      total += item.price * item.quantity;
+
+      const itemElement = document.createElement("div");
+      itemElement.className = "cart-item";
+
+      itemElement.innerHTML = `
+        <div class="cart-item-info">
+          <strong>${item.name}</strong><br>
+          ${formatPrice(item.price)} × ${item.quantity}
+        </div>
+
+        <div class="cart-controls">
+          <button onclick="decreaseQuantity(${index})">−</button>
+          <span>${item.quantity}</span>
+          <button onclick="increaseQuantity(${index})">+</button>
+          <button class="remove-button" onclick="removeItem(${index})">
+            Устгах
+          </button>
+        </div>
+      `;
+
+      cartItems.appendChild(itemElement);
+    });
+
+    cartTotal.textContent = formatPrice(total);
+  }
+
+  function increaseQuantity(index) {
+    cart[index].quantity += 1;
+    saveCart();
+    updateCartCount();
+    renderCart();
+  }
+
+  function decreaseQuantity(index) {
+    cart[index].quantity -= 1;
+
+    if (cart[index].quantity <= 0) {
+      cart.splice(index, 1);
+    }
+
+    saveCart();
+    updateCartCount();
+    renderCart();
+  }
+
+  function removeItem(index) {
+    cart.splice(index, 1);
+    saveCart();
+    updateCartCount();
+    renderCart();
   }
 
   document.querySelectorAll(".add-cart").forEach(button => {
@@ -288,8 +419,9 @@
         });
       }
 
-      localStorage.setItem("cart", JSON.stringify(cart));
+      saveCart();
       updateCartCount();
+      renderCart();
 
       this.textContent = "Сагсанд нэмэгдлээ ✓";
 
@@ -300,6 +432,7 @@
   });
 
   updateCartCount();
+  renderCart();
 </script>
 </body>
 </html>
