@@ -432,7 +432,15 @@
 <footer>
   © 2026 1000ug
 </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
+  const SUPABASE_URL = "https://rrveozafrpmodfbjkneq.supabase.co";
+const SUPABASE_KEY = "sb_publishable_17vSJveoAYH8ES7vVS5Etg_LUoGMcsz";
+
+const supabaseClient = supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
 let cart = [];
 
 try {
@@ -663,6 +671,7 @@ document.addEventListener("DOMContentLoaded", function () {
   renderCart();
 
 });
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </script>
 </body>
 </html>
