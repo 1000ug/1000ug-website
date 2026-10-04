@@ -651,8 +651,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const phone =
         document.getElementById("customer-phone").value.trim();
 
-      const district =
-        document.getElementById("customer-district").value.trim();
+      const district = "";
 
       const address =
         document.getElementById("customer-address").value.trim();
@@ -668,7 +667,7 @@ const deliveryFee = 7000;
 const finalTotal = subtotal + deliveryFee;
 
 
-      if (!name || !phone || !district || !address) {
+      if (!name || !phone || !address) {
 
         checkoutMessage.textContent =
           "Шаардлагатай мэдээллийг бүрэн оруулна уу.";
