@@ -1,477 +1,476 @@
 <!DOCTYPE html>
 <html lang="mn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1000 үг | Онлайн дэлгүүр</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1000 үг | Онлайн дэлгүүр</title>
 
-<style>
-body {
-margin: 0;
-font-family: Arial, sans-serif;
-background: #f7f7f5;
-color: #222;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f7f5;
+      color: #222;
+    }
 
-header {
-background: white;
-padding: 18px 8%;
-display: flex;
-justify-content: space-between;
-align-items: center;
-border-bottom: 1px solid #e8e8e8;
-position: sticky;
-top: 0;
-}
+    header {
+      background: white;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e8e8e8;
+      position: sticky;
+      top: 0;
+    }
 
-.logo {
-font-size: 28px;
-font-weight: 700;
-}
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+    }
 
-nav a {
-margin-left: 24px;
-text-decoration: none;
-color: #222;
-font-size: 15px;
-}
+    nav a {
+      margin-left: 24px;
+      text-decoration: none;
+      color: #222;
+      font-size: 15px;
+    }
 
-.hero {
-text-align: center;
-padding: 90px 20px;
-background: #eef3ef;
-}
+    .hero {
+      text-align: center;
+      padding: 90px 20px;
+      background: #eef3ef;
+    }
 
-.hero h1 {
-font-size: 48px;
-margin-bottom: 15px;
-}
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
 
-.hero p {
-font-size: 19px;
-color: #555;
-margin-bottom: 30px;
-}
+    .hero p {
+      font-size: 19px;
+      color: #555;
+      margin-bottom: 30px;
+    }
 
-.button {
-display: inline-block;
-background: #222;
-color: white;
-padding: 14px 26px;
-text-decoration: none;
-border-radius: 8px;
-}
+    .button {
+      display: inline-block;
+      background: #222;
+      color: white;
+      padding: 14px 26px;
+      text-decoration: none;
+      border-radius: 8px;
+    }
 
-.section {
-padding: 60px 8%;
-}
+    .section {
+      padding: 60px 8%;
+    }
 
-.section h2 {
-font-size: 30px;
-margin-bottom: 30px;
-}
-
-.books {
-display: grid;
-grid-template-columns: repeat(3, minmax(0, 1fr));
-gap: 25px;
-width: 100%;
+    .section h2 {
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+    
+      .books {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+  width: 100%;
 }
 
 .book {
-background: white;
-padding: 20px;
-border-radius: 12px;
-box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-min-width: 0;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  min-width: 0;
 }
 
 .book-image {
-width: 100%;
-height: 300px;
-background: #f2f2f2;
-border-radius: 8px;
-display: flex;
-align-items: center;
-justify-content: center;
-overflow: hidden;
-margin-bottom: 18px;
+  width: 100%;
+  height: 300px;
+  background: #f2f2f2;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 18px;
 }
 
 .book-image img {
-max-width: 100%;
-max-height: 100%;
-width: auto;
-height: auto;
-object-fit: contain;
-display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 @media (max-width: 800px) {
-.books {
-grid-template-columns: repeat(2, minmax(0, 1fr));
-}
+  .books {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 500px) {
-.books {
-grid-template-columns: 1fr;
-}
-}
-
-background: #ececec;
-height: 260px;
-border-radius: 8px;
-display: flex;
-align-items: center;
-justify-content: center;
-color: #888;
-margin-bottom: 18px;
+  .books {
+    grid-template-columns: 1fr;
+  }
 }
 
-.book h3 {
-font-size: 18px;
-margin: 0 0 10px;
-}
+      background: #ececec;
+      height: 260px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      margin-bottom: 18px;
+    }
 
-.price {
-font-weight: bold;
-margin-bottom: 15px;
-}
+    .book h3 {
+      font-size: 18px;
+      margin: 0 0 10px;
+    }
 
-.add-cart {
-width: 100%;
-padding: 12px;
-border: none;
-border-radius: 7px;
-background: #222;
-color: white;
-cursor: pointer;
-}
+    .price {
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
 
-.about {
-background: white;
-line-height: 1.7;
-}
+    .add-cart {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 7px;
+      background: #222;
+      color: white;
+      cursor: pointer;
+    }
 
-footer {
-text-align: center;
-padding: 35px;
-background: #222;
-color: white;
-margin-top: 40px;
-}
+    .about {
+      background: white;
+      line-height: 1.7;
+    }
 
-@media (max-width: 700px) {
-nav {
-display: none;
-}
+    footer {
+      text-align: center;
+      padding: 35px;
+      background: #222;
+      color: white;
+      margin-top: 40px;
+    }
 
-.hero h1 {
-font-size: 36px;
-}
+    @media (max-width: 700px) {
+      nav {
+        display: none;
+      }
 
-.hero {
-padding: 65px 20px;
-}
-}
-#cart-items {
-display: flex;
-flex-direction: column;
-gap: 15px;
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero {
+        padding: 65px 20px;
+      }
+    }
+    #cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .cart-item {
-background: white;
-padding: 18px;
-border-radius: 10px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-gap: 20px;
+  background: white;
+  padding: 18px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
 
 .cart-item-info {
-flex: 1;
+  flex: 1;
 }
 
 .cart-controls {
-display: flex;
-align-items: center;
-gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .cart-controls button {
-border: none;
-background: #222;
-color: white;
-width: 32px;
-height: 32px;
-border-radius: 6px;
-cursor: pointer;
+  border: none;
+  background: #222;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 .remove-button {
-background: #777 !important;
-width: auto !important;
-padding: 0 10px;
+  background: #777 !important;
+  width: auto !important;
+  padding: 0 10px;
 }
 
 #cart-summary {
-margin-top: 25px;
-text-align: right;
-font-size: 20px;
+  margin-top: 25px;
+  text-align: right;
+  font-size: 20px;
 }
-.checkout-button {
-display: block;
-margin-left: auto;
-margin-top: 20px;
-padding: 14px 32px;
-border: none;
-border-radius: 8px;
-background: #222;
-color: white;
-font-size: 16px;
-cursor: pointer;
+   .checkout-button {
+  display: block;
+  margin-left: auto;
+  margin-top: 20px;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 8px;
+  background: #222;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .checkout-form {
-display: none;
-max-width: 600px;
-margin: 40px auto 0;
-background: white;
-padding: 30px;
-border-radius: 12px;
+  display: none;
+  max-width: 600px;
+  margin: 40px auto 0;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
 }
 
 .checkout-form h2 {
-margin-top: 0;
+  margin-top: 0;
 }
 
 .checkout-form label {
-display: block;
-margin-top: 18px;
-margin-bottom: 7px;
-font-weight: bold;
+  display: block;
+  margin-top: 18px;
+  margin-bottom: 7px;
+  font-weight: bold;
 }
 
 .checkout-form input,
 .checkout-form textarea {
-width: 100%;
-box-sizing: border-box;
-padding: 13px;
-border: 1px solid #ccc;
-border-radius: 7px;
-font-size: 16px;
-font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font-size: 16px;
+  font-family: inherit;
 }
 
 .checkout-form textarea {
-min-height: 90px;
-resize: vertical;
+  min-height: 90px;
+  resize: vertical;
 }
 
 .place-order-button {
-width: 100%;
-margin-top: 25px;
-padding: 15px;
-border: none;
-border-radius: 8px;
-background: #222;
-color: white;
-font-size: 16px;
-cursor: pointer;
+  width: 100%;
+  margin-top: 25px;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background: #222;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 #checkout-message {
-margin-top: 20px;
-font-weight: bold;
+  margin-top: 20px;
+  font-weight: bold;
 }
-.delivery-option {
-margin-top: 20px;
-padding: 15px;
-background: #f5f5f3;
-border-radius: 8px;
+    .delivery-option {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f5f5f3;
+  border-radius: 8px;
 }
 
 .delivery-option label {
-margin: 0;
-font-weight: normal;
-cursor: pointer;
+  margin: 0;
+  font-weight: normal;
+  cursor: pointer;
 }
 
 .delivery-option input {
-width: auto;
-margin-right: 8px;
+  width: auto;
+  margin-right: 8px;
 }
-.payment-instructions {
-display: none;
-max-width: 650px;
-margin: 30px auto 0;
-padding: 30px;
-background: white;
-border-radius: 12px;
-line-height: 1.7;
+   .payment-instructions {
+  display: none;
+  max-width: 650px;
+  margin: 30px auto 0;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  line-height: 1.7;
 }
 #payment-instructions {
-  scroll-margin-top: 100px;
   scroll-margin-top: 130px;
 }
 .payment-box {
-background: #f5f5f3;
-padding: 20px;
-border-radius: 10px;
-margin: 20px 0;
+  background: #f5f5f3;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
 }
 
 .payment-amount {
-font-size: 26px;
-font-weight: bold;
+  font-size: 26px;
+  font-weight: bold;
 }
-</style>
+  </style>
 </head>
 
 <body>
 
 <header>
-<div class="logo">1000 үг</div>
+  <div class="logo">1000 үг</div>
 
-<nav>
-<a href="#books">Номууд</a>
-<a href="#about">Бидний тухай</a>
-<a href="#cart">Сагс (<span id="cart-count">0</span>)</a>
-</nav>
+  <nav>
+    <a href="#books">Номууд</a>
+    <a href="#about">Бидний тухай</a>
+    <a href="#cart">Сагс (<span id="cart-count">0</span>)</a>
+  </nav>
 </header>
 
 <section class="hero">
-<h1>1000 үг</h1>
-<p>Хүүхдийн уран сэтгэмж, хэлний ур чадварыг хөгжүүлэх номууд</p>
-<a class="button" href="#books">Номууд үзэх</a>
+  <h1>1000 үг</h1>
+  <p>Хүүхдийн уран сэтгэмж, хэлний ур чадварыг хөгжүүлэх номууд</p>
+  <a class="button" href="#books">Номууд үзэх</a>
 </section>
 
 <section class="section" id="books">
-<h2>Онцлох номууд</h2>
+  <h2>Онцлох номууд</h2>
 
-<div class="books">
+  <div class="books">
 
-<div class="book">
-<div class="book-image">
-<img src="1000-english-words.jpg" alt="Миний анхны 1000 англи үг">
+    <div class="book">
+      <div class="book-image">
+  <img src="1000-english-words.jpg" alt="Миний анхны 1000 англи үг">
 </div>
-<h3>Миний анхны 1000 англи үг</h3>
-<div class="price">27,900₮</div>
-<button class="add-cart"
-data-name="Миний анхны 1000 англи үг"
-data-price="27900">
-Сагсанд хийх
+      <h3>Миний анхны 1000 англи үг</h3>
+      <div class="price">27,900₮</div>
+      <button class="add-cart"
+        data-name="Миний анхны 1000 англи үг"
+        data-price="27900">
+  Сагсанд хийх
 </button>
+    </div>
+    
+    <div class="book">
+      <div class="book-image">
+  <img src="1000-english-words-2.jpg" alt="Миний анхны 1000 англи үг 2">
 </div>
-
-<div class="book">
-<div class="book-image">
-<img src="1000-english-words-2.jpg" alt="Миний анхны 1000 англи үг 2">
-</div>
-<h3>Миний анхны 1000 англи үг 2</h3>
-<div class="price">29,900₮</div>
-<button class="add-cart"
-data-name="Миний анхны 1000 англи үг 2"
-data-price="29900">
-Сагсанд хийх
+      <h3>Миний анхны 1000 англи үг 2</h3>
+      <div class="price">29,900₮</div>
+      <button class="add-cart"
+        data-name="Миний анхны 1000 англи үг 2"
+        data-price="29900">
+  Сагсанд хийх
 </button>
-</div>
+    </div>
 
-<div class="book">
-<div class="book-image">
-<img src="Minii_anhnii_ulgeriin.jpg" alt="Миний анхны үлгэрийн ном">
-</div>
-<h3>Миний анхны үлгэрийн ном</h3>
-<div class="price">27,900₮</div>
-<button class="add-cart"
-data-name="Миний анхны үлгэрийн ном"
-data-price="27900">
-Сагсанд хийх
+    <div class="book">
+      <div class="book-image">
+        <img src="Minii_anhnii_ulgeriin.jpg" alt="Миний анхны үлгэрийн ном">
+      </div>
+      <h3>Миний анхны үлгэрийн ном</h3>
+      <div class="price">27,900₮</div>
+      <button class="add-cart"
+        data-name="Миний анхны үлгэрийн ном"
+        data-price="27900">
+  Сагсанд хийх
 </button>
-</div>
+    </div>
 
-<div class="book">
-<div class="book-image">
-<img src="Minii_anhnii_1000_oros_ug.jpg" alt="Миний анхны 1000 орос үг">
-</div>
-<h3>Миний анхны 1000 орос үг</h3>
-<div class="price">29,900₮</div>
-<button class="add-cart"
-data-name="Миний анхны 1000 орос үг"
-data-price="29900">
-Сагсанд хийх
+    <div class="book">
+      <div class="book-image">
+        <img src="Minii_anhnii_1000_oros_ug.jpg" alt="Миний анхны 1000 орос үг">
+      </div>
+      <h3>Миний анхны 1000 орос үг</h3>
+      <div class="price">29,900₮</div>
+      <button class="add-cart"
+        data-name="Миний анхны 1000 орос үг"
+        data-price="29900">
+  Сагсанд хийх
 </button>
-</div>
+    </div>
 
-<div class="book">
-<div class="book-image">
-<img src="2000_test.jpg" alt="Англи хэлний 2000 тест">
+     <div class="book">
+      <div class="book-image">
+  <img src="2000_test.jpg" alt="Англи хэлний 2000 тест">
 </div>
-<h3>Англи хэлний 2000 тест</h3>
-<div class="price">22,900₮</div>
-<button class="add-cart"
-data-name="Англи хэлний 2000 тест"
-data-price="22900">
-Сагсанд хийх
+      <h3>Англи хэлний 2000 тест</h3>
+      <div class="price">22,900₮</div>
+      <button class="add-cart"
+        data-name="Англи хэлний 2000 тест"
+        data-price="22900">
+  Сагсанд хийх
 </button>
-</div>
-
-</div>
+    </div>
+    
+  </div>
 </section>
 <section class="section" id="cart">
-<h2>Сагс</h2>
+  <h2>Сагс</h2>
 
-<div id="cart-items"></div>
+  <div id="cart-items"></div>
 
-<div id="cart-summary">
-<p>Барааны дүн: <span id="cart-subtotal">0₮</span></p>
-<p>Хүргэлт: <span>7,000₮</span></p>
-<h3>Нийт: <span id="cart-total">0₮</span></h3>
+ <div id="cart-summary">
+  <p>Барааны дүн: <span id="cart-subtotal">0₮</span></p>
+  <p>Хүргэлт: <span>7,000₮</span></p>
+  <h3>Нийт: <span id="cart-total">0₮</span></h3>
 </div>
 
-<button id="checkout-button" class="checkout-button">
-Захиалах
-</button>
+  <button id="checkout-button" class="checkout-button">
+    Захиалах
+  </button>
 
-<div id="checkout-form" class="checkout-form">
+  <div id="checkout-form" class="checkout-form">
 
-<h2>Захиалгын мэдээлэл</h2>
+    <h2>Захиалгын мэдээлэл</h2>
 
-<label for="customer-name">Нэр</label>
-<input
-type="text"
-id="customer-name"
-placeholder="Таны нэр"
->
+    <label for="customer-name">Нэр</label>
+    <input
+      type="text"
+      id="customer-name"
+      placeholder="Таны нэр"
+    >
 
-<label for="customer-phone">Утасны дугаар</label>
-<input
-type="tel"
-id="customer-phone"
-placeholder="99112233"
->
+    <label for="customer-phone">Утасны дугаар</label>
+    <input
+      type="tel"
+      id="customer-phone"
+      placeholder="99112233"
+    >
 
+    
+    <label for="customer-address">Хүргэлтийн хаяг</label>
+    <textarea
+      id="customer-address"
+      placeholder="Дүүрэг, хороо, байр, орц, тоот болон хүмүүсийн мэддэгээр дэлгэрэнгүй хаяг"
+    ></textarea>
 
-<label for="customer-address">Хүргэлтийн хаяг</label>
-<textarea
-id="customer-address"
-placeholder="Дүүрэг, хороо, байр, орц, тоот болон хүмүүсийн мэддэгээр дэлгэрэнгүй хаяг"
-></textarea>
+    <label for="customer-note">Нэмэлт мэдээлэл</label>
+    <textarea
+      id="customer-note"
+      placeholder="Нэмэлт мэдээлэл"
+    ></textarea>
 
-<label for="customer-note">Нэмэлт мэдээлэл</label>
-<textarea
-id="customer-note"
-placeholder="Нэмэлт мэдээлэл"
-></textarea>
+    <button id="place-order-button" class="place-order-button">
+      Захиалга баталгаажуулах
+    </button>
 
-<button id="place-order-button" class="place-order-button">
-Захиалга баталгаажуулах
-</button>
-
-<p id="checkout-message"></p>
+    <p id="checkout-message"></p>
 
 </div>
 
@@ -479,358 +478,358 @@ placeholder="Нэмэлт мэдээлэл"
 
 </section>
 <section class="section about" id="about">
-<h2>Бидний тухай</h2>
+  <h2>Бидний тухай</h2>
 
-<p>
-1000 үг нь бага, өсвөр насныханд зориулсан
-ном, сургалтын материалын онлайн дэлгүүр юм.
-</p>
+  <p>
+    1000 үг нь бага, өсвөр насныханд зориулсан
+    ном, сургалтын материалын онлайн дэлгүүр юм.
+  </p>
 </section>
 
 <footer>
-© 2026 1000ug
+  © 2026 1000ug
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const SUPABASE_URL = "https://rrveozafrpmodfbjkneq.supabase.co";
+  const SUPABASE_URL = "https://rrveozafrpmodfbjkneq.supabase.co";
 const SUPABASE_KEY = "sb_publishable_17vSJveoAYH8ES7vVS5Etg_LUoGMcsz";
 
 let supabaseClient = null;
 
 if (window.supabase) {
-supabaseClient = window.supabase.createClient(
-SUPABASE_URL,
-SUPABASE_KEY
-);
+  supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
 }
 
 let cart = [];
 
 try {
-const savedCart = localStorage.getItem("cart");
+  const savedCart = localStorage.getItem("cart");
 
-if (savedCart) {
-cart = JSON.parse(savedCart);
-}
+  if (savedCart) {
+    cart = JSON.parse(savedCart);
+  }
 
-if (!Array.isArray(cart)) {
-cart = [];
-}
+  if (!Array.isArray(cart)) {
+    cart = [];
+  }
 } catch (error) {
-cart = [];
-localStorage.removeItem("cart");
+  cart = [];
+  localStorage.removeItem("cart");
 }
 
 
 function saveCart() {
-localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 
 function updateCartCount() {
-const totalItems = cart.reduce(
-(total, item) => total + item.quantity,
-0
-);
+  const totalItems = cart.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
-document.getElementById("cart-count").textContent = totalItems;
+  document.getElementById("cart-count").textContent = totalItems;
 }
 
 
 function formatPrice(price) {
-return price.toLocaleString() + "₮";
+  return price.toLocaleString() + "₮";
 }
 
 
 function renderCart() {
-const cartItems = document.getElementById("cart-items");
-const cartSubtotal = document.getElementById("cart-subtotal");
-const cartTotal = document.getElementById("cart-total");
+  const cartItems = document.getElementById("cart-items");
+  const cartSubtotal = document.getElementById("cart-subtotal");
+  const cartTotal = document.getElementById("cart-total");
 
-cartItems.innerHTML = "";
+  cartItems.innerHTML = "";
 
-if (cart.length === 0) {
-cartItems.innerHTML = "<p>Таны сагс хоосон байна.</p>";
-cartSubtotal.textContent = "0₮";
-cartTotal.textContent = "0₮";
-return;
-}
+  if (cart.length === 0) {
+    cartItems.innerHTML = "<p>Таны сагс хоосон байна.</p>";
+    cartSubtotal.textContent = "0₮";
+    cartTotal.textContent = "0₮";
+    return;
+  }
 
-let subtotal = 0;
+  let subtotal = 0;
 
-cart.forEach((item, index) => {
-subtotal += item.price * item.quantity;
+  cart.forEach((item, index) => {
+    subtotal += item.price * item.quantity;
 
-const itemElement = document.createElement("div");
-itemElement.className = "cart-item";
+    const itemElement = document.createElement("div");
+    itemElement.className = "cart-item";
 
-itemElement.innerHTML = `
-     <div class="cart-item-info">
-       <strong>${item.name}</strong><br>
-       ${formatPrice(item.price)} × ${item.quantity}
-     </div>
+    itemElement.innerHTML = `
+      <div class="cart-item-info">
+        <strong>${item.name}</strong><br>
+        ${formatPrice(item.price)} × ${item.quantity}
+      </div>
 
-     <div class="cart-controls">
-       <button onclick="decreaseQuantity(${index})">−</button>
-       <span>${item.quantity}</span>
-       <button onclick="increaseQuantity(${index})">+</button>
+      <div class="cart-controls">
+        <button onclick="decreaseQuantity(${index})">−</button>
+        <span>${item.quantity}</span>
+        <button onclick="increaseQuantity(${index})">+</button>
 
-       <button
-         class="remove-button"
-         onclick="removeItem(${index})"
-       >
-         Устгах
-       </button>
-     </div>
-   `;
+        <button
+          class="remove-button"
+          onclick="removeItem(${index})"
+        >
+          Устгах
+        </button>
+      </div>
+    `;
 
-cartItems.appendChild(itemElement);
-});
+    cartItems.appendChild(itemElement);
+  });
 
-const deliveryFee = 7000;
+  const deliveryFee = 7000;
 
-cartSubtotal.textContent = formatPrice(subtotal);
-cartTotal.textContent = formatPrice(subtotal + deliveryFee);
+  cartSubtotal.textContent = formatPrice(subtotal);
+  cartTotal.textContent = formatPrice(subtotal + deliveryFee);
 }
 
 
 function increaseQuantity(index) {
-cart[index].quantity += 1;
+  cart[index].quantity += 1;
 
-saveCart();
-updateCartCount();
-renderCart();
+  saveCart();
+  updateCartCount();
+  renderCart();
 }
 
 
 function decreaseQuantity(index) {
-cart[index].quantity -= 1;
+  cart[index].quantity -= 1;
 
-if (cart[index].quantity <= 0) {
-cart.splice(index, 1);
-}
+  if (cart[index].quantity <= 0) {
+    cart.splice(index, 1);
+  }
 
-saveCart();
-updateCartCount();
-renderCart();
+  saveCart();
+  updateCartCount();
+  renderCart();
 }
 
 
 function removeItem(index) {
-cart.splice(index, 1);
+  cart.splice(index, 1);
 
-saveCart();
-updateCartCount();
-renderCart();
+  saveCart();
+  updateCartCount();
+  renderCart();
 }
 
 
 document.addEventListener("DOMContentLoaded", function () {
 
-// ADD TO CART
+  // ADD TO CART
 
-document.querySelectorAll(".add-cart").forEach(button => {
+  document.querySelectorAll(".add-cart").forEach(button => {
 
-button.addEventListener("click", function () {
+    button.addEventListener("click", function () {
 
-const name = this.dataset.name;
-const price = Number(this.dataset.price);
+      const name = this.dataset.name;
+      const price = Number(this.dataset.price);
 
-const existingItem =
-cart.find(item => item.name === name);
+      const existingItem =
+        cart.find(item => item.name === name);
 
-if (existingItem) {
-existingItem.quantity += 1;
-} else {
-cart.push({
-name: name,
-price: price,
-quantity: 1
-});
-}
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({
+          name: name,
+          price: price,
+          quantity: 1
+        });
+      }
 
-saveCart();
-updateCartCount();
-renderCart();
+      saveCart();
+      updateCartCount();
+      renderCart();
 
-this.textContent = "Сагсанд нэмэгдлээ ✓";
+      this.textContent = "Сагсанд нэмэгдлээ ✓";
 
-setTimeout(() => {
-this.textContent = "Сагсанд хийх";
-}, 1200);
-});
-});
-
-
-// OPEN CHECKOUT
-
-const checkoutButton =
-document.getElementById("checkout-button");
-
-const checkoutForm =
-document.getElementById("checkout-form");
-
-if (checkoutButton && checkoutForm) {
-
-checkoutButton.addEventListener("click", function () {
-
-if (cart.length === 0) {
-alert("Таны сагс хоосон байна.");
-return;
-}
-
-checkoutForm.style.display = "block";
-
-checkoutForm.scrollIntoView({
-behavior: "smooth",
-block: "start"
-});
-});
-}
+      setTimeout(() => {
+        this.textContent = "Сагсанд хийх";
+      }, 1200);
+    });
+  });
 
 
-// CONFIRM ORDER
+  // OPEN CHECKOUT
 
-const placeOrderButton =
-document.getElementById("place-order-button");
+  const checkoutButton =
+    document.getElementById("checkout-button");
 
-const checkoutMessage =
-document.getElementById("checkout-message");
+  const checkoutForm =
+    document.getElementById("checkout-form");
 
-if (placeOrderButton) {
+  if (checkoutButton && checkoutForm) {
 
-placeOrderButton.addEventListener(
-"click",
-async function () {
+    checkoutButton.addEventListener("click", function () {
 
-const name =
-document.getElementById("customer-name")
-.value.trim();
+      if (cart.length === 0) {
+        alert("Таны сагс хоосон байна.");
+        return;
+      }
 
-const phone =
-document.getElementById("customer-phone")
-.value.trim();
+      checkoutForm.style.display = "block";
 
-const address =
-document.getElementById("customer-address")
-.value.trim();
+      checkoutForm.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    });
+  }
 
-const note =
-document.getElementById("customer-note")
-.value.trim();
 
-// No separate district field anymore.
-const district = "";
+  // CONFIRM ORDER
 
-if (!name || !phone || !address) {
-checkoutMessage.textContent =
-"Шаардлагатай мэдээллийг бүрэн оруулна уу.";
-return;
-}
+  const placeOrderButton =
+    document.getElementById("place-order-button");
 
-if (!/^[0-9]{8}$/.test(phone)) {
-checkoutMessage.textContent =
-"Утасны дугаарыг 8 оронтой тоогоор оруулна уу.";
-return;
-}
+  const checkoutMessage =
+    document.getElementById("checkout-message");
 
-if (!supabaseClient) {
-checkoutMessage.textContent =
-"Системтэй холбогдоход алдаа гарлаа.";
+  if (placeOrderButton) {
 
-return;
-}
+    placeOrderButton.addEventListener(
+      "click",
+      async function () {
 
-placeOrderButton.disabled = true;
-placeOrderButton.textContent =
-"Түр хүлээнэ үү...";
+        const name =
+          document.getElementById("customer-name")
+            .value.trim();
 
-try {
+        const phone =
+          document.getElementById("customer-phone")
+            .value.trim();
 
-const { data, error } = await supabaseClient.rpc(
-"create_order",
-{
-p_customer_name: name,
-p_phone: phone,
-p_district: district,
-p_address: address,
-p_note: note,
-p_items: cart,
-p_delivery_required: true
-}
+        const address =
+          document.getElementById("customer-address")
+            .value.trim();
+
+        const note =
+          document.getElementById("customer-note")
+            .value.trim();
+
+        // No separate district field anymore.
+        const district = "";
+
+        if (!name || !phone || !address) {
+          checkoutMessage.textContent =
+            "Шаардлагатай мэдээллийг бүрэн оруулна уу.";
+          return;
+        }
+
+        if (!/^[0-9]{8}$/.test(phone)) {
+          checkoutMessage.textContent =
+            "Утасны дугаарыг 8 оронтой тоогоор оруулна уу.";
+          return;
+        }
+
+        if (!supabaseClient) {
+          checkoutMessage.textContent =
+            "Системтэй холбогдоход алдаа гарлаа.";
+
+          return;
+        }
+
+        placeOrderButton.disabled = true;
+        placeOrderButton.textContent =
+          "Түр хүлээнэ үү...";
+
+        try {
+
+          const { data, error } = await supabaseClient.rpc(
+  "create_order",
+  {
+    p_customer_name: name,
+    p_phone: phone,
+    p_district: district,
+    p_address: address,
+    p_note: note,
+    p_items: cart,
+    p_delivery_required: true
+  }
 );
 
-if (error) {
-console.error(error);
+          if (error) {
+            console.error(error);
 
-checkoutMessage.textContent =
-"Захиалга хадгалахад алдаа гарлаа.";
+            checkoutMessage.textContent =
+              "Захиалга хадгалахад алдаа гарлаа.";
 
-placeOrderButton.disabled = false;
-placeOrderButton.textContent =
-"Захиалга баталгаажуулах";
+            placeOrderButton.disabled = false;
+            placeOrderButton.textContent =
+              "Захиалга баталгаажуулах";
 
-return;
-}
+            return;
+          }
 
-const orderCode = String(data).padStart(6, "0");
+          const orderCode = String(data).padStart(6, "0");
 
 const subtotal = cart.reduce(
-(total, item) => total + (item.price * item.quantity),
-0
+  (total, item) => total + (item.price * item.quantity),
+  0
 );
 
 const deliveryFee = 7000;
 const finalTotal = subtotal + deliveryFee;
 
 const paymentBox =
-document.getElementById("payment-instructions");
+  document.getElementById("payment-instructions");
 
 checkoutMessage.textContent = "";
 
 paymentBox.innerHTML = `
- <h2>Та төлбөрөө төлж захиалгаа баталгаажуулна уу</h2>
+  <h2>Та төлбөрөө төлж захиалгаа баталгаажуулна уу</h2>
 
- <p class="payment-code">
-   Захиалгын дугаар:
-   <strong>${orderCode}</strong>
- </p>
+  <p class="payment-code">
+    Захиалгын дугаар:
+    <strong>${orderCode}</strong>
+  </p>
 
- <div class="payment-box">
+  <div class="payment-box">
 
-   <p>
-     Банк:
-     <strong>Хаан Банк</strong>
-   </p>
+    <p>
+      Банк:
+      <strong>Хаан Банк</strong>
+    </p>
 
-   <p>
-     Дансны дугаар:
-     <strong>MN58000500 5041142215</strong>
-   </p>
+    <p>
+      Дансны дугаар:
+      <strong>MN58000500 5041142215</strong>
+    </p>
 
-   <p>
-     Дансны нэр:
-     <strong>Э.Төгөлдөр</strong>
-   </p>
+    <p>
+      Дансны нэр:
+      <strong>Э.Төгөлдөр</strong>
+    </p>
 
-   <p>
-     Гүйлгээний утга:
-     <strong>${orderCode}, ${phone}</strong>
-   </p>
+    <p>
+      Гүйлгээний утга:
+      <strong>${orderCode}, ${phone}</strong>
+    </p>
 
-   <p>
- Шилжүүлэх дүн:
- <span class="payment-amount">
-   ${finalTotal.toLocaleString()}₮
- </span>
+    <p>
+  Шилжүүлэх дүн:
+  <span class="payment-amount">
+    ${finalTotal.toLocaleString()}₮
+  </span>
 </p>
 
- </div>
+  </div>
 
-
-  <p>
-   Захиалга баталгаажсанаас хойш 24-48 цагийн дотор хүргэлт хийгдэнэ.
- </p>
+ 
+   <p>
+    Захиалга баталгаажсанаас хойш 24-48 цагийн дотор хүргэлт хийгдэнэ.
+  </p>
 `;
 
 paymentBox.style.display = "block";
@@ -838,53 +837,53 @@ paymentBox.style.display = "block";
 checkoutForm.style.display = "none";
 
 paymentBox.scrollIntoView({
-behavior: "smooth",
-block: "start"
+  behavior: "smooth",
+  block: "start"
 });
 
-cart = [];
+          cart = [];
 
-saveCart();
-updateCartCount();
-renderCart();
+          saveCart();
+          updateCartCount();
+          renderCart();
 
-document.getElementById(
-"customer-name"
-).value = "";
+          document.getElementById(
+            "customer-name"
+          ).value = "";
 
-document.getElementById(
-"customer-phone"
-).value = "";
+          document.getElementById(
+            "customer-phone"
+          ).value = "";
 
-document.getElementById(
-"customer-address"
-).value = "";
+          document.getElementById(
+            "customer-address"
+          ).value = "";
 
-document.getElementById(
-"customer-note"
-).value = "";
+          document.getElementById(
+            "customer-note"
+          ).value = "";
 
-placeOrderButton.textContent =
-"Амжилттай ✓";
+          placeOrderButton.textContent =
+            "Амжилттай ✓";
 
-} catch (err) {
+        } catch (err) {
 
-console.error(err);
+          console.error(err);
 
-checkoutMessage.textContent =
-"Захиалга хадгалахад алдаа гарлаа.";
+          checkoutMessage.textContent =
+            "Захиалга хадгалахад алдаа гарлаа.";
 
-placeOrderButton.disabled = false;
-placeOrderButton.textContent =
-"Захиалга баталгаажуулах";
-}
-}
-);
-}
+          placeOrderButton.disabled = false;
+          placeOrderButton.textContent =
+            "Захиалга баталгаажуулах";
+        }
+      }
+    );
+  }
 
 
-updateCartCount();
-renderCart();
+  updateCartCount();
+  renderCart();
 
 });
 </script>
