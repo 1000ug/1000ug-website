@@ -468,10 +468,14 @@
   const SUPABASE_URL = "https://rrveozafrpmodfbjkneq.supabase.co";
 const SUPABASE_KEY = "sb_publishable_17vSJveoAYH8ES7vVS5Etg_LUoGMcsz";
 
-const supabaseClient = supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
-);
+let supabaseClient = null;
+
+if (window.supabase) {
+  supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+}
 let cart = [];
 
 try {
@@ -690,7 +694,6 @@ const finalTotal = subtotal + deliveryFee;
         customer: {
           name: name,
           phone: phone,
-          district: district,
           address: address,
           note: note
         },
@@ -741,7 +744,7 @@ try {
 
   document.getElementById("customer-name").value = "";
   document.getElementById("customer-phone").value = "";
-  document.getElementById("customer-district").value = "";
+ 
   document.getElementById("customer-address").value = "";
   document.getElementById("customer-note").value = "";
 
