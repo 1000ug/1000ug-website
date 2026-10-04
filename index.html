@@ -428,17 +428,11 @@
       placeholder="99112233"
     >
 
-    <label for="customer-district">Дүүрэг / Хороо</label>
-    <input
-      type="text"
-      id="customer-district"
-      placeholder="Жишээ: ХУД, 15-р хороо"
-    >
-
+    
     <label for="customer-address">Хүргэлтийн хаяг</label>
     <textarea
       id="customer-address"
-      placeholder="Байр, орц, тоот болон дэлгэрэнгүй хаяг"
+      placeholder="Дүүрэг, хороо, байр, орц, тоот болон хүмүүсийн мэддэгээр дэлгэрэнгүй хаяг"
     ></textarea>
 <div class="delivery-option">
   <label>
@@ -451,7 +445,12 @@
       id="customer-note"
       placeholder="Нэмэлт мэдээлэл"
     ></textarea>
-
+<div class="delivery-option">
+  <label>
+    <input type="checkbox" id="delivery-required">
+    Хүргэлт (+7,000₮)
+  </label>
+</div>
     <button id="place-order-button" class="place-order-button">
       Захиалга баталгаажуулах
     </button>
