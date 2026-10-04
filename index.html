@@ -530,35 +530,50 @@ nav a:hover {
     .hero {
   position: relative;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 15% 25%, rgba(111, 168, 95, 0.18) 0 90px, transparent 91px),
-    radial-gradient(circle at 85% 30%, rgba(86, 136, 74, 0.12) 0 120px, transparent 121px),
-    radial-gradient(circle at 72% 85%, rgba(111, 168, 95, 0.10) 0 80px, transparent 81px),
-    #EDF6E9;
+  background: #EDF6E9;
 }
-    .hero::before,
+
+.hero::before,
 .hero::after {
   content: "";
   position: absolute;
-  border-radius: 50%;
   pointer-events: none;
+  opacity: 0.18;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .hero::before {
-  width: 180px;
-  height: 180px;
-  background: rgba(111, 168, 95, 0.10);
-  top: -60px;
-  left: -40px;
+  width: 220px;
+  height: 220px;
+  top: -10px;
+  left: 20px;
+
+  background-image:
+    linear-gradient(135deg, transparent 48%, #6FA85F 49%, #6FA85F 51%, transparent 52%),
+    radial-gradient(ellipse at 35% 40%, rgba(111,168,95,0.45) 0 16%, transparent 17%),
+    radial-gradient(ellipse at 52% 28%, rgba(111,168,95,0.35) 0 13%, transparent 14%),
+    radial-gradient(ellipse at 63% 48%, rgba(111,168,95,0.30) 0 14%, transparent 15%);
+  
+  transform: rotate(-20deg);
 }
 
 .hero::after {
-  width: 240px;
-  height: 240px;
-  background: rgba(86, 136, 74, 0.08);
-  bottom: -90px;
-  right: -60px;
-}.hero h1,
+  width: 190px;
+  height: 190px;
+  right: 25px;
+  bottom: -5px;
+
+  background-image:
+    linear-gradient(45deg, transparent 48%, #56884A 49%, #56884A 51%, transparent 52%),
+    radial-gradient(ellipse at 42% 38%, rgba(86,136,74,0.35) 0 15%, transparent 16%),
+    radial-gradient(ellipse at 60% 56%, rgba(86,136,74,0.28) 0 13%, transparent 14%),
+    radial-gradient(ellipse at 30% 65%, rgba(86,136,74,0.22) 0 12%, transparent 13%);
+
+  transform: rotate(18deg);
+}
+
+.hero h1,
 .hero p,
 .hero .button {
   position: relative;
