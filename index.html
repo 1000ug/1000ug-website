@@ -402,9 +402,11 @@
 
   <div id="cart-items"></div>
 
-  <div id="cart-summary">
-    <h3>Нийт: <span id="cart-total">0₮</span></h3>
-  </div>
+ <div id="cart-summary">
+  <p>Барааны дүн: <span id="cart-subtotal">0₮</span></p>
+  <p>Хүргэлт: <span>7,000₮</span></p>
+  <h3>Нийт: <span id="cart-total">0₮</span></h3>
+</div>
 
   <button id="checkout-button" class="checkout-button">
     Захиалах
@@ -434,23 +436,13 @@
       id="customer-address"
       placeholder="Дүүрэг, хороо, байр, орц, тоот болон хүмүүсийн мэддэгээр дэлгэрэнгүй хаяг"
     ></textarea>
-<div class="delivery-option">
-  <label>
-    <input type="checkbox" id="delivery-required">
-    Хүргэлтээр авах (+7,000₮)
-  </label>
-</div>
+
     <label for="customer-note">Нэмэлт мэдээлэл</label>
     <textarea
       id="customer-note"
       placeholder="Нэмэлт мэдээлэл"
     ></textarea>
-<div class="delivery-option">
-  <label>
-    <input type="checkbox" id="delivery-required">
-    Хүргэлт (+7,000₮)
-  </label>
-</div>
+
     <button id="place-order-button" class="place-order-button">
       Захиалга баталгаажуулах
     </button>
@@ -514,14 +506,15 @@ function formatPrice(price) {
 function renderCart() {
   const cartItems = document.getElementById("cart-items");
   const cartTotal = document.getElementById("cart-total");
-
+const cartSubtotal = document.getElementById("cart-subtotal");
   cartItems.innerHTML = "";
 
   if (cart.length === 0) {
-    cartItems.innerHTML = "<p>Таны сагс хоосон байна.</p>";
-    cartTotal.textContent = "0₮";
-    return;
-  }
+  cartItems.innerHTML = "<p>Таны сагс хоосон байна.</p>";
+  cartSubtotal.textContent = "0₮";
+  cartTotal.textContent = "0₮";
+  return;
+}
 
   let total = 0;
 
@@ -550,7 +543,10 @@ function renderCart() {
     cartItems.appendChild(itemElement);
   });
 
-  cartTotal.textContent = formatPrice(total);
+  const deliveryFee = 7000;
+
+cartSubtotal.textContent = formatPrice(total);
+cartTotal.textContent = formatPrice(total + deliveryFee);
 }
 
 function increaseQuantity(index) {
