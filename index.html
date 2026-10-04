@@ -720,19 +720,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
         try {
 
-          const { data, error } =
-            await supabaseClient.rpc(
-              "create_order",
-              {
-                p_customer_name: name,
-                p_phone: phone,
-                p_district: district,
-                p_address: address,
-                p_note: note,
-                p_items: cart,
-                p_delivery_required: true
-              }
-            );
+          const { data, error } = await supabaseClient.rpc(
+  "create_order",
+  {
+    p_customer_name: name,
+    p_phone: phone,
+    p_district: district,
+    p_address: address,
+    p_note: note,
+    p_items: cart,
+    p_delivery_required: true
+  }
+);
 
           if (error) {
             console.error(error);
