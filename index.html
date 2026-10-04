@@ -659,6 +659,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const note =
         document.getElementById("customer-note").value.trim();
+      const subtotal = cart.reduce(
+  (total, item) => total + (item.price * item.quantity),
+  0
+);
+
+const deliveryFee = 7000;
+const finalTotal = subtotal + deliveryFee;
 
 
       if (!name || !phone || !district || !address) {
@@ -700,16 +707,17 @@ placeOrderButton.textContent = "Түр хүлээнэ үү...";
 
 try {
   const { data, error } = await supabaseClient.rpc(
-    "create_order",
-    {
-      p_customer_name: name,
-      p_phone: phone,
-      p_district: district,
-      p_address: address,
-      p_note: note,
-      p_items: cart
-    }
-  );
+  "create_order",
+  {
+    p_customer_name: name,
+    p_phone: phone,
+    p_district: district,
+    p_address: address,
+    p_note: note,
+    p_items: cart,
+    p_delivery_required: true
+  }
+);
 
   if (error) {
     console.error(error);
