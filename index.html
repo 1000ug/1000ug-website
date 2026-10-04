@@ -304,6 +304,35 @@
   width: auto;
   margin-right: 8px;
 }
+   .payment-instructions {
+  display: none;
+  max-width: 650px;
+  margin: 30px auto 0;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  line-height: 1.7;
+}
+
+.payment-instructions h2 {
+  margin-top: 0;
+}
+
+.payment-box {
+  background: #f5f5f3;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.payment-amount {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.payment-code {
+  font-size: 20px;
+} 
   </style>
 </head>
 
@@ -448,7 +477,7 @@
     </button>
 
     <p id="checkout-message"></p>
-
+<div id="payment-instructions" class="payment-instructions"></div>
   </div>
 </section>
 <section class="section about" id="about">
@@ -746,9 +775,85 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
           }
 
-          checkoutMessage.textContent =
-            "Захиалга амжилттай бүртгэгдлээ. " +
-            "Захиалгын дугаар: " + data;
+          const orderCode = String(data).padStart(6, "0");
+
+const subtotal = cart.reduce(
+  (total, item) => total + (item.price * item.quantity),
+  0
+);
+
+const deliveryFee = 7000;
+const finalTotal = subtotal + deliveryFee;
+
+const paymentBox =
+  document.getElementById("payment-instructions");
+
+checkoutMessage.textContent = "";
+
+paymentBox.innerHTML = `
+  <h2>Та төлбөрөө төлж захиалгаа баталгаажуулна уу</h2>
+
+  <p class="payment-code">
+    Захиалгын дугаар:
+    <strong>${orderCode}</strong>
+  </p>
+
+  <div class="payment-box">
+
+    <p>
+      Банк:
+      <strong>Хаан Банк</strong>
+    </p>
+
+    <p>
+      Дансны дугаар:
+      <strong>MN58000500 5041142215</strong>
+    </p>
+
+    <p>
+      Дансны нэр:
+      <strong>Э.Төгөлдөр</strong>
+    </p>
+
+    <p>
+      Гүйлгээний утга:
+      <strong>${orderCode}, ${phone}</strong>
+    </p>
+
+    <p>
+  Шилжүүлэх дүн:
+  <span class="payment-amount">
+    ${finalTotal.toLocaleString()}₮
+  </span>
+</p>
+
+  </div>
+
+  <p>
+    Та гүйлгээний утга дээр захиалгын дугаар болон
+    утасны дугаараа заавал бичээрэй.
+  </p>
+
+  <p>
+    Төлбөр шилжүүлсний дараа захиалга баталгаажих болно.
+  </p>
+
+  <h3>Хүргэлтэнд гарах</h3>
+
+  <p>
+    Захиалга баталгаажсаны дараа барааг баглаж,
+    хүргэлтэнд шилжүүлнэ.
+  </p>
+`;
+
+paymentBox.style.display = "block";
+
+checkoutForm.style.display = "none";
+
+paymentBox.scrollIntoView({
+  behavior: "smooth",
+  block: "start"
+});
 
           cart = [];
 
