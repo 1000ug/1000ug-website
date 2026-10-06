@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Номын булан | 1000 UG Shop</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #394336;
+      background: #f7f5ee;
+    }
+
+    /* HEADER */
+
+    header {
+      background: white;
+      border-bottom: 1px solid #e7e9e3;
+    }
+
+    .nav {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 18px 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #52704b;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #4c5848;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #6c895f;
+    }
+
+
+    /* HERO */
+
+    .book-corner-hero {
+      padding: 75px 20px 55px;
+
+      background:
+        radial-gradient(circle at 12% 20%,
+          rgba(255,255,255,0.9) 0 2px,
+          transparent 3px),
+
+        radial-gradient(circle at 82% 30%,
+          rgba(255,255,255,0.75) 0 2px,
+          transparent 3px),
+
+        radial-gradient(circle at 68% 72%,
+          rgba(255,255,255,0.7) 0 1.5px,
+          transparent 2.5px),
+
+        linear-gradient(
+          180deg,
+          #f7f2e7 0%,
+          #edf3e8 100%
+        );
+
+      text-align: center;
+    }
+
+    .corner-label {
+      margin: 0 0 10px;
+
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+
+      color: #708264;
+    }
+
+    .book-corner-hero h1 {
+      margin: 0;
+
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      line-height: 1.2;
+
+      color: #364332;
+    }
+
+    .corner-intro {
+      max-width: 650px;
+
+      margin: 18px auto 0;
+
+      font-size: 1rem;
+      line-height: 1.75;
+
+      color: #697265;
+    }
+
+
+    /* VIDEOS */
+
+    .videos-section {
+      padding: 55px 20px 80px;
+    }
+
+    .video-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .video-card {
+      overflow: hidden;
+
+      background: white;
+
+      border-radius: 20px;
+      border: 1px solid #e6e9e2;
+
+      box-shadow:
+        0 8px 25px rgba(55, 70, 50, 0.07);
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .video-card:hover {
+      transform: translateY(-4px);
+
+      box-shadow:
+        0 12px 30px rgba(55, 70, 50, 0.11);
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+
+      background: #ddd;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      border: 0;
+    }
+
+    .video-info {
+      padding: 20px;
+    }
+
+    .video-info h2 {
+      margin: 0 0 6px;
+
+      font-size: 1.1rem;
+      line-height: 1.4;
+
+      color: #354232;
+    }
+
+    .author {
+      margin: 0 0 15px;
+
+      font-size: 0.9rem;
+
+      color: #7a8176;
+    }
+
+    .meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .meta span {
+      padding: 6px 11px;
+
+      border-radius: 999px;
+
+      background: #edf3e8;
+
+      color: #5f7355;
+
+      font-size: 0.78rem;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+      padding: 30px 20px;
+
+      text-align: center;
+
+      background: #44563e;
+      color: #eef3eb;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
+
+
+    /* TABLET */
+
+    @media (max-width: 900px) {
+
+      .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+
+
+    /* PHONE */
+
+    @media (max-width: 650px) {
+
+      .nav {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .book-corner-hero {
+        padding: 55px 20px 45px;
+      }
+
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .videos-section {
+        padding: 40px 16px 60px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<header>
+
+  <nav class="nav">
+
+    <a class="logo" href="index.html">
+      1000 UG Shop
+    </a>
+
+    <div class="nav-links">
+
+      <a href="index.html">Нүүр</a>
+
+      <a href="index.html#books">
+        Номууд
+      </a>
+
+      <a href="book-corner.html">
+        Номын булан
+      </a>
+
+      <a href="index.html#about">
+        Бидний тухай
+      </a>
+
+      <a href="index.html#cart">
+        Сагс
+      </a>
+
+    </div>
+
+  </nav>
+
+</header>
+
+
+
+<section class="book-corner-hero">
+
+  <p class="corner-label">
+    ДЭЛХИЙН НОМЫН БУЛАН
+  </p>
+
+  <h1>
+    Өнөө орой юу унших вэ?
+  </h1>
+
+  <p class="corner-intro">
+    Дэлхийн өнцөг булан бүрийн хүүхдийн номуудтай
+    танилцаж, хүүхэдтэйгээ хамт унших дараагийн
+    номоо олоорой.
+  </p>
+
+</section>
+
+
+
+<section class="videos-section">
+
+  <div class="video-grid">
+
+
+    <!-- BOOK 1 -->
+
+    <article class="video-card">
+
+      <div class="video-wrapper">
+
+        <iframe
+          src="https://www.youtube.com/embed/VIDEO_ID_1"
+          title="Children's book video"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+      <div class="video-info">
+
+        <h2>
+          The Gruffalo
+        </h2>
+
+        <p class="author">
+          Julia Donaldson
+        </p>
+
+        <div class="meta">
+
+          <span>
+            Их Британи
+          </span>
+
+          <span>
+            3–7 нас
+          </span>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- BOOK 2 -->
+
+    <article class="video-card">
+
+      <div class="video-wrapper">
+
+        <iframe
+          src="https://www.youtube.com/embed/VIDEO_ID_2"
+          title="Children's book video"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+      <div class="video-info">
+
+        <h2>
+          Where the Wild Things Are
+        </h2>
+
+        <p class="author">
+          Maurice Sendak
+        </p>
+
+        <div class="meta">
+
+          <span>
+            АНУ
+          </span>
+
+          <span>
+            4–8 нас
+          </span>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- BOOK 3 -->
+
+    <article class="video-card">
+
+      <div class="video-wrapper">
+
+        <iframe
+          src="https://www.youtube.com/embed/VIDEO_ID_3"
+          title="Children's book video"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+      <div class="video-info">
+
+        <h2>
+          Номын нэр
+        </h2>
+
+        <p class="author">
+          Зохиолч
+        </p>
+
+        <div class="meta">
+
+          <span>
+            Улс
+          </span>
+
+          <span>
+            3–6 нас
+          </span>
+
+        </div>
+
+      </div>
+
+    </article>
+
+
+  </div>
+
+</section>
+
+
+
+<footer>
+
+  <p>
+    © 1000 UG Shop
+  </p>
+
+  <p>
+    <a href="index.html">
+      Дэлгүүр рүү буцах
+    </a>
+  </p>
+
+</footer>
+
+
+</body>
+</html>
