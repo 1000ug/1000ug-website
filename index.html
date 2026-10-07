@@ -877,6 +877,11 @@ function renderCart() {
 
   cartSubtotal.textContent = formatPrice(subtotal);
   cartTotal.textContent = formatPrice(subtotal + deliveryFee);
+
+  const deliveryFeeText = document.getElementById("delivery-fee");
+
+deliveryFeeText.textContent =
+  deliveryFee === 0 ? "Үнэгүй" : formatPrice(deliveryFee);
 }
 
 
