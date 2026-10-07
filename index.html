@@ -873,7 +873,7 @@ function renderCart() {
     cartItems.appendChild(itemElement);
   });
 
-  const deliveryFee = 7000;
+  const deliveryFee = subtotal >= 50000 ? 0 : 7000;
 
   cartSubtotal.textContent = formatPrice(subtotal);
   cartTotal.textContent = formatPrice(subtotal + deliveryFee);
@@ -1066,7 +1066,7 @@ const subtotal = cart.reduce(
   0
 );
 
-const deliveryFee = 7000;
+const deliveryFee = subtotal >= 50000 ? 0 : 7000;
 const finalTotal = subtotal + deliveryFee;
 
 const paymentBox =
