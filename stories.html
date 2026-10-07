@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Үлгэрийн булан | 1000 үг</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #394336;
+      background: #f8f5ee;
+    }
+
+    /* HEADER */
+
+    header {
+      background: white;
+      border-bottom: 1px solid #e7e9e3;
+    }
+
+    .nav {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 18px 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #52704b;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #4c5848;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #6c895f;
+    }
+
+
+    /* HERO */
+
+    .stories-hero {
+      padding: 72px 20px 52px;
+      text-align: center;
+
+      background:
+        radial-gradient(circle at 12% 20%,
+          rgba(255,255,255,0.9) 0 2px,
+          transparent 3px),
+
+        radial-gradient(circle at 82% 28%,
+          rgba(255,255,255,0.8) 0 2px,
+          transparent 3px),
+
+        linear-gradient(
+          180deg,
+          #f8f1e8 0%,
+          #edf3e8 100%
+        );
+    }
+
+    .stories-hero h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.2;
+      color: #364332;
+    }
+
+    .stories-intro {
+      max-width: 680px;
+      margin: 18px auto 0;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #697265;
+    }
+
+
+    /* CATEGORY BUTTONS */
+
+    .story-categories {
+      max-width: 1000px;
+      margin: 34px auto 0;
+
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .story-categories span {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(89, 106, 79, 0.13);
+      color: #607455;
+      font-size: 0.84rem;
+    }
+
+
+    /* VIDEOS */
+
+    .stories-section {
+      padding: 55px 20px 80px;
+    }
+
+    .story-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .story-card {
+      overflow: hidden;
+      background: white;
+      border-radius: 20px;
+      border: 1px solid #e6e9e2;
+
+      box-shadow:
+        0 8px 25px rgba(55, 70, 50, 0.07);
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .story-card:hover {
+      transform: translateY(-4px);
+
+      box-shadow:
+        0 12px 30px rgba(55, 70, 50, 0.11);
+    }
+
+    .story-video {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #ddd;
+    }
+
+    .story-video iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .story-info {
+      padding: 20px;
+    }
+
+    .story-info h2 {
+      margin: 0 0 7px;
+      font-size: 1.1rem;
+      line-height: 1.4;
+      color: #354232;
+    }
+
+    .story-type {
+      margin: 0 0 14px;
+      color: #7a8176;
+      font-size: 0.9rem;
+    }
+
+    .meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .meta span {
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: #edf3e8;
+      color: #5f7355;
+      font-size: 0.78rem;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+      padding: 30px 20px;
+      text-align: center;
+      background: #44563e;
+      color: #eef3eb;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
+
+
+    /* TABLET */
+
+    @media (max-width: 900px) {
+      .story-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+
+    /* PHONE */
+
+    @media (max-width: 650px) {
+
+      .nav {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .stories-hero {
+        padding: 55px 20px 42px;
+      }
+
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stories-section {
+        padding: 40px 16px 60px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<header>
+
+  <nav class="nav">
+
+    <a class="logo" href="index.html">
+      1000 үг
+    </a>
+
+    <div class="nav-links">
+
+      <a href="index.html">Нүүр</a>
+
+      <a href="index.html#books">
+        Манай номууд
+      </a>
+
+      <a href="book_corner.html">
+        Дэлхийн номын булан
+      </a>
+
+      <a href="stories.html">
+        Үлгэрийн булан
+      </a>
+
+      <a href="index.html#about">
+        Бидний тухай
+      </a>
+
+      <a href="index.html#cart">
+        Сагс
+      </a>
+
+    </div>
+
+  </nav>
+
+</header>
+
+
+
+<section class="stories-hero">
+
+  <h1>
+    Үлгэрийн булан
+  </h1>
+
+  <p class="stories-intro">
+    Хүүхэдтэйгээ хамт үзэж, сонсож болох үлгэр,
+    сургамжит өгүүллэг, богино түүхүүдийг эндээс олоорой.
+  </p>
+
+  <div class="story-categories">
+    <span>Үлгэр</span>
+    <span>Сургамжит өгүүллэг</span>
+    <span>Эзопын үлгэр</span>
+    <span>Унтахын өмнө</span>
+    <span>3–5 нас</span>
+    <span>6–8 нас</span>
+  </div>
+
+</section>
+
+
+
+<section class="stories-section">
+
+  <div class="story-grid">
+
+
+    <!-- STORY 1 -->
+
+    <article class="story-card">
+
+      <div class="story-video">
+
+        <iframe
+          src="https://www.youtube.com/embed/VIDEO_ID_1"
+          title="The Tortoise and the Hare"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+      <div class="story-info">
+
+        <h2>
+          The Tortoise and the Hare
+        </h2>
+
+        <p class="story-type">
+          Эзопын үлгэр
+        </p>
+
+        <div class="meta">
+          <span>Сургамжит</span>
+          <span>4–8 нас</span>
+        </div>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- STORY 2 -->
+
+    <article class="story-card">
+
+      <div class="story-video">
+
+        <iframe
+          src="https://www.youtube.com/embed/VIDEO_ID_2"
+          title="The Lion and the Mouse"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+      <div class="story-info">
+
+        <h2>
+          The Lion and the Mouse
+        </h2>
+
+        <p class="story-type">
+          Эзопын үлгэр
+        </p>
+
+        <div class="meta">
+          <span>Нөхөрлөл</span>
+          <span>4–8 нас</span>
+        </div>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- STORY 3 -->
+
+    <article class="story-card">
+
+      <div class="story-video">
+
+        <iframe
+          src="https://www.youtube.com/embed/VIDEO_ID_3"
+          title="Children's story"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+      <div class="story-info">
+
+        <h2>
+          Үлгэрийн нэр
+        </h2>
+
+        <p class="story-type">
+          Богино өгүүллэг
+        </p>
+
+        <div class="meta">
+          <span>Унтахын өмнө</span>
+          <span>3–6 нас</span>
+        </div>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- STORY 4 -->
+
+    <article class="story-card">
+
+      <div class="story-video">
+
+        <iframe
+          src="https://www.youtube.com/embed/VIDEO_ID_4"
+          title="Children's story"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+      <div class="story-info">
+
+        <h2>
+          Үлгэрийн нэр
+        </h2>
+
+        <p class="story-type">
+          Үлгэр
+        </p>
+
+        <div class="meta">
+          <span>Гэр бүл</span>
+          <span>3–7 нас</span>
+        </div>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- STORY 5 -->
+
+    <article class="story-card">
+
+      <div class="story-video">
+
+        <iframe
+          src="https://www.youtube.com/embed/VIDEO_ID_5"
+          title="Children's story"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+      <div class="story-info">
+
+        <h2>
+          Үлгэрийн нэр
+        </h2>
+
+        <p class="story-type">
+          Сургамжит өгүүллэг
+        </p>
+
+        <div class="meta">
+          <span>Нөхөрлөл</span>
+          <span>5–8 нас</span>
+        </div>
+
+      </div>
+
+    </article>
+
+
+
+    <!-- STORY 6 -->
+
+    <article class="story-card">
+
+      <div class="story-video">
+
+        <iframe
+          src="https://www.youtube.com/embed/VIDEO_ID_6"
+          title="Children's story"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+      <div class="story-info">
+
+        <h2>
+          Үлгэрийн нэр
+        </h2>
+
+        <p class="story-type">
+          Богино өгүүллэг
+        </p>
+
+        <div class="meta">
+          <span>Унтахын өмнө</span>
+          <span>4–7 нас</span>
+        </div>
+
+      </div>
+
+    </article>
+
+
+  </div>
+
+</section>
+
+
+
+<footer>
+
+  <p>
+    © 1000 үг
+  </p>
+
+  <p>
+    <a href="index.html">
+      Буцах
+    </a>
+  </p>
+
+</footer>
+
+
+</body>
+</html>
