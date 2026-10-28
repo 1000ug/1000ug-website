@@ -832,6 +832,48 @@ function formatPrice(price) {
 }
 
 
+function calculateCartTotals() {
+  const subtotal = cart.reduce(
+    (total, item) =>
+      total + Number(item.price) * Number(item.quantity),
+    0
+  );
+
+  const totalQuantity = cart.reduce(
+    (total, item) => total + Number(item.quantity),
+    0
+  );
+
+  let discountAmount = 0;
+
+  cart.forEach(item => {
+    const lineSubtotal =
+      Number(item.price) * Number(item.quantity);
+
+    if (
+      item.name === "Миний анхны үлгэрийн ном" &&
+      Number(item.quantity) > 10
+    ) {
+      discountAmount += Math.round(lineSubtotal * 0.30);
+    } else if (totalQuantity >= 5) {
+      discountAmount += Math.round(lineSubtotal * 0.20);
+    }
+  });
+
+  const discountedSubtotal = subtotal - discountAmount;
+  const deliveryFee = subtotal >= 50000 ? 0 : 7000;
+  const finalTotal = discountedSubtotal + deliveryFee;
+
+  return {
+    subtotal,
+    totalQuantity,
+    discountAmount,
+    discountedSubtotal,
+    deliveryFee,
+    finalTotal
+  };
+}
+
 
 function renderCart() {
   const cartItems = document.getElementById("cart-items");
