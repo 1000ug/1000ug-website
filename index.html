@@ -1123,23 +1123,16 @@ document.addEventListener("DOMContentLoaded", function () {
           const orderCode = String(data).padStart(6, "0");
 
 
-const subtotal = cart.reduce(
-  (total, item) => total + (item.price * item.quantity),
-  0
-);
 
-const totalQuantity = cart.reduce(
-  (total, item) => total + Number(item.quantity),
-  0
-);
+const {
+  subtotal,
+  totalQuantity,
+  discountAmount,
+  discountedSubtotal,
+  deliveryFee,
+  finalTotal
+} = calculateCartTotals();
 
-const discountAmount =
-  totalQuantity >= 5 ? Math.round(subtotal * 0.20) : 0;
-
-const discountedSubtotal = subtotal - discountAmount;
-
-const deliveryFee = subtotal >= 50000 ? 0 : 7000;
-const finalTotal = discountedSubtotal + deliveryFee;
 
 const paymentBox =
   document.getElementById("payment-instructions");
