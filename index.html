@@ -832,9 +832,12 @@ function formatPrice(price) {
 }
 
 
+
 function renderCart() {
   const cartItems = document.getElementById("cart-items");
   const cartSubtotal = document.getElementById("cart-subtotal");
+  const cartDiscount = document.getElementById("cart-discount");
+  const deliveryFeeText = document.getElementById("delivery-fee");
   const cartTotal = document.getElementById("cart-total");
 
   cartItems.innerHTML = "";
@@ -842,14 +845,25 @@ function renderCart() {
   if (cart.length === 0) {
     cartItems.innerHTML = "<p>Таны сагс хоосон байна.</p>";
     cartSubtotal.textContent = "0₮";
+
+    if (cartDiscount) {
+      cartDiscount.textContent = "0₮";
+    }
+
+    if (deliveryFeeText) {
+      deliveryFeeText.textContent = "0₮";
+    }
+
     cartTotal.textContent = "0₮";
     return;
   }
 
   let subtotal = 0;
+  let totalQuantity = 0;
 
   cart.forEach((item, index) => {
     subtotal += item.price * item.quantity;
+    totalQuantity += Number(item.quantity);
 
     const itemElement = document.createElement("div");
     itemElement.className = "cart-item";
@@ -877,16 +891,34 @@ function renderCart() {
     cartItems.appendChild(itemElement);
   });
 
+  // 20% discount when buying 5 or more books
+  const discountAmount =
+    totalQuantity >= 5 ? Math.round(subtotal * 0.20) : 0;
+
+  const discountedSubtotal = subtotal - discountAmount;
+
+  // Free delivery when the original subtotal is 50,000₮ or more
   const deliveryFee = subtotal >= 50000 ? 0 : 7000;
 
+  const finalTotal = discountedSubtotal + deliveryFee;
+
   cartSubtotal.textContent = formatPrice(subtotal);
-  cartTotal.textContent = formatPrice(subtotal + deliveryFee);
 
-  const deliveryFeeText = document.getElementById("delivery-fee");
+  if (cartDiscount) {
+    cartDiscount.textContent =
+      discountAmount > 0
+        ? "-" + formatPrice(discountAmount)
+        : "0₮";
+  }
 
-deliveryFeeText.textContent =
-  deliveryFee === 0 ? "Үнэгүй" : formatPrice(deliveryFee);
+  if (deliveryFeeText) {
+    deliveryFeeText.textContent =
+      deliveryFee === 0 ? "Үнэгүй" : formatPrice(deliveryFee);
+  }
+
+  cartTotal.textContent = formatPrice(finalTotal);
 }
+
 
 
 function increaseQuantity(index) {
