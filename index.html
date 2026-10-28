@@ -875,6 +875,7 @@ function calculateCartTotals() {
 }
 
 
+
 function renderCart() {
   const cartItems = document.getElementById("cart-items");
   const cartSubtotal = document.getElementById("cart-subtotal");
@@ -888,25 +889,14 @@ function renderCart() {
     cartItems.innerHTML = "<p>Таны сагс хоосон байна.</p>";
     cartSubtotal.textContent = "0₮";
 
-    if (cartDiscount) {
-      cartDiscount.textContent = "0₮";
-    }
-
-    if (deliveryFeeText) {
-      deliveryFeeText.textContent = "0₮";
-    }
+    if (cartDiscount) cartDiscount.textContent = "0₮";
+    if (deliveryFeeText) deliveryFeeText.textContent = "0₮";
 
     cartTotal.textContent = "0₮";
     return;
   }
 
-  let subtotal = 0;
-  let totalQuantity = 0;
-
   cart.forEach((item, index) => {
-    subtotal += item.price * item.quantity;
-    totalQuantity += Number(item.quantity);
-
     const itemElement = document.createElement("div");
     itemElement.className = "cart-item";
 
@@ -920,11 +910,7 @@ function renderCart() {
         <button onclick="decreaseQuantity(${index})">−</button>
         <span>${item.quantity}</span>
         <button onclick="increaseQuantity(${index})">+</button>
-
-        <button
-          class="remove-button"
-          onclick="removeItem(${index})"
-        >
+        <button class="remove-button" onclick="removeItem(${index})">
           Устгах
         </button>
       </div>
@@ -933,33 +919,25 @@ function renderCart() {
     cartItems.appendChild(itemElement);
   });
 
-  // 20% discount when buying 5 or more books
-  const discountAmount =
-    totalQuantity >= 5 ? Math.round(subtotal * 0.20) : 0;
+  const totals = calculateCartTotals();
 
-  const discountedSubtotal = subtotal - discountAmount;
-
-  // Free delivery when the original subtotal is 50,000₮ or more
-  const deliveryFee = subtotal >= 50000 ? 0 : 7000;
-
-  const finalTotal = discountedSubtotal + deliveryFee;
-
-  cartSubtotal.textContent = formatPrice(subtotal);
+  cartSubtotal.textContent = formatPrice(totals.subtotal);
 
   if (cartDiscount) {
-    cartDiscount.textContent =
-      discountAmount > 0
-        ? "-" + formatPrice(discountAmount)
-        : "0₮";
+    cartDiscount.textContent = totals.discountAmount > 0
+      ? "-" + formatPrice(totals.discountAmount)
+      : "0₮";
   }
 
   if (deliveryFeeText) {
-    deliveryFeeText.textContent =
-      deliveryFee === 0 ? "Үнэгүй" : formatPrice(deliveryFee);
+    deliveryFeeText.textContent = totals.deliveryFee === 0
+      ? "Үнэгүй"
+      : formatPrice(totals.deliveryFee);
   }
 
-  cartTotal.textContent = formatPrice(finalTotal);
+  cartTotal.textContent = formatPrice(totals.finalTotal);
 }
+
 
 
 
