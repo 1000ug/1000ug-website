@@ -868,7 +868,7 @@ function calculateCartTotals() {
   });
 
   const discountedSubtotal = subtotal - discountAmount;
-  const deliveryFee = subtotal >= 50000 ? 0 : 7000;
+  const deliveryFee = subtotal >= 40000 ? 0 : 7000;
   const finalTotal = discountedSubtotal + deliveryFee;
 
   return {
