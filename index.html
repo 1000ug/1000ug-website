@@ -711,11 +711,15 @@ nav a:hover {
 
   <div id="cart-items"></div>
 
- <div id="cart-summary">
+ 
+<div id="cart-summary">
   <p>Барааны дүн: <span id="cart-subtotal">0₮</span></p>
+  <p>Хямдрал (20%): <span id="cart-discount">0₮</span></p>
   <p>Хүргэлт: <span id="delivery-fee">7,000₮</span></p>
   <h3>Нийт: <span id="cart-total">0₮</span></h3>
+  <p>5 ба түүнээс олон ном авбал 20% хямдралтай!</p>
 </div>
+
 
   <button id="checkout-button" class="checkout-button">
     Захиалах
@@ -1066,13 +1070,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
           const orderCode = String(data).padStart(6, "0");
 
+
 const subtotal = cart.reduce(
   (total, item) => total + (item.price * item.quantity),
   0
 );
 
+const totalQuantity = cart.reduce(
+  (total, item) => total + Number(item.quantity),
+  0
+);
+
+const discountAmount =
+  totalQuantity >= 5 ? Math.round(subtotal * 0.20) : 0;
+
+const discountedSubtotal = subtotal - discountAmount;
+
 const deliveryFee = subtotal >= 50000 ? 0 : 7000;
-const finalTotal = subtotal + deliveryFee;
+const finalTotal = discountedSubtotal + deliveryFee;
+
+const paymentBox =
+  document.getElementById("payment-instructions");
+
+checkoutMessage.textContent = "";
+
 
 const paymentBox =
   document.getElementById("payment-instructions");
