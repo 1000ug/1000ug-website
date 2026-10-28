@@ -834,6 +834,7 @@ function formatPrice(price) {
 }
 
 
+
 function calculateCartTotals() {
   const subtotal = cart.reduce(
     (total, item) =>
@@ -849,15 +850,19 @@ function calculateCartTotals() {
   let discountAmount = 0;
 
   cart.forEach(item => {
-    const lineSubtotal =
-      Number(item.price) * Number(item.quantity);
+    const quantity = Number(item.quantity);
+    const lineSubtotal = Number(item.price) * quantity;
 
+    // Special 30% discount for 10 or more copies
+    // of My First Fairytale Book
     if (
-      item.name === "Миний анхны үлгэрийн ном" &&
-      Number(item.quantity) > 10
+      item.name.trim() === "Миний анхны үлгэрийн ном" &&
+      quantity >= 10
     ) {
       discountAmount += Math.round(lineSubtotal * 0.30);
-    } else if (totalQuantity >= 5) {
+    }
+    // Regular 20% discount on eligible books
+    else if (totalQuantity >= 5) {
       discountAmount += Math.round(lineSubtotal * 0.20);
     }
   });
@@ -875,6 +880,7 @@ function calculateCartTotals() {
     finalTotal
   };
 }
+
 
 
 
